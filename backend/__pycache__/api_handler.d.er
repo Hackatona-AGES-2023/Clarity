@@ -1,0 +1,14 @@
+##[pylyzer] failed /home/lucas/hackatona/backend/api_handler.py 1685207002
+.uuid = pyimport "uuid"
+
+.requests = pyimport "requests"
+
+.json = pyimport "json"
+
+.openai = pyimport "openai"
+
+.ApiHandler: ClassType
+.ApiHandler.__call__: () -> .ApiHandler
+.ApiHandler.soffos: (self: .ApiHandler, msg: Obj) -> Never
+.ApiHandler.chatGPT: (self: .ApiHandler, msg: Obj) -> Never
+

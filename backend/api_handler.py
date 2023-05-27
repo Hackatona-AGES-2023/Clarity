@@ -32,7 +32,7 @@ class ApiHandler:
 
         return json.dumps(response.json())
     def chatGPT(self, msg):
-        api_key = "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"
+        api_key = "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"
 
         url = "https://api.openai.com/v1/chat/completions"
 

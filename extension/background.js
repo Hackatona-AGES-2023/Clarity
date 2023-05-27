@@ -88,7 +88,7 @@ const getResponse = async (question, model) => {
     // test(question, model)
     return new Promise(async (resolve, reject) => {
 
-        const url = "http://localhost:3333/exec"
+        const url = "http://localhost:8080/exec"
         let body = {
             "isGPT": false,
             "message": question 
