@@ -1,9 +1,9 @@
 import { Button, Flex, Image, Text } from "@chakra-ui/react";
 import Group from "../../assets/icons/Group.svg";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 export default function HeaderComponent() {
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
 
   return (
     <Flex
@@ -32,13 +32,13 @@ export default function HeaderComponent() {
       >
         <Button
           variant={'unstyled'}
-          onClick={() => navigate('how-to-use')}
+        // onClick={() => navigate('how-to-use')}
         >
           {'Como usar?'}
         </Button>
         <Button
           variant={'unstyled'}
-          onClick={() => navigate('app')}
+        // onClick={() => navigate('app')}
         >
           {'Tradutor'}
         </Button>
