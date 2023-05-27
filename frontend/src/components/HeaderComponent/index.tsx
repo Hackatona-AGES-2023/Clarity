@@ -1,17 +1,23 @@
-import { Button, Flex, Text } from "@chakra-ui/react";
+import { Button, Flex, Image, Text } from "@chakra-ui/react";
+import Group from "../../assets/icons/Group.svg";
+import { useNavigate } from "react-router-dom";
 
 export default function HeaderComponent() {
+  const navigate = useNavigate()
+
   return (
     <Flex
       boxShadow={'0 0 3px rgba(0,0,0,0.5)'}
       zIndex={1}
       h={'10%'}
-      gap={'40px'}
+      gap={'50px'}
     >
       <Flex
         alignItems={'center'}
         pl={'20px'}
+        gap={'8%'}
       >
+        <Image src={Group} />
         <Text
           fontSize={'1.5rem'}
           fontWeight={'bold'}
@@ -26,11 +32,13 @@ export default function HeaderComponent() {
       >
         <Button
           variant={'unstyled'}
+          onClick={() => navigate('how-to-use')}
         >
           {'Como usar?'}
         </Button>
         <Button
           variant={'unstyled'}
+          onClick={() => navigate('app')}
         >
           {'Tradutor'}
         </Button>
