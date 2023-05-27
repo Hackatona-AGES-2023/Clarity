@@ -12,7 +12,7 @@ class ApiHandler:
             "messages": [
                 {
                     "source": "user",
-                    "text": f"Rewrite the following sentence, removing their ambiguity and explain it, if exists, in Portuguese: {msg}"
+                    "text": f"Rewrite the following sentence, removing their ambiguity, if exists, in portuguese: {msg} return just the sentence."
                 }
             ],
             "mode": "open",
@@ -38,7 +38,7 @@ class ApiHandler:
 
         data = {
             "model": "gpt-3.5-turbo",
-            "messages": [{"role": "user", "content": f"Rewrite the following sentence, removing their ambiguity and explain it, if exists, in Portuguese: {msg}"}],
+            "messages": [{"role": "user", "content": f"Rewrite the following sentence, removing their ambiguity, if exists, in portuguese: {msg} return just the sentence."}],
             "temperature": 0.7
         }
         headers = {

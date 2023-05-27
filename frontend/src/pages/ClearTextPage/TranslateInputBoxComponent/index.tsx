@@ -8,7 +8,12 @@ export default function TranslateInputBoxComponent(props: any) {
 
   const traduzir = () => {
     setValue("Convertendo...")
-    getIAResponse(props.isGPT, message).then((data) => { setValue(data.data.data.response); console.log(data.data.data.response) });
+    getIAResponse(props.isGPT, message).then((data) => { 
+      if(props.isGPT) setValue(data.data.data.choices[0].message.content)
+      else {
+        setValue(data.data.data.response);
+      }
+    });
   }
 
   return (
