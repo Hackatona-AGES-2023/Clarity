@@ -1,0 +1,6 @@
+{
+    "manifest_version": 3,
+    "name": "clarity",
+    "description": "A chrome extension that lets you select any text and detect any ambiguity",
+    "version": "1.0.0",
+}
