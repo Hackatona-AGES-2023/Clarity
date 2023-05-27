@@ -3,6 +3,8 @@ import HeaderComponent from "../../components/HeaderComponent";
 import TranslateInputBoxComponent from "./TranslateInputBoxComponent";
 import AmbiguityReasonBoxComponent from "./AmbiguityReasonBoxComponent";
 import { useState } from "react";
+import { SiOpenai } from "react-icons/si"
+import { FaBrain } from "react-icons/fa"
 
 export default function ClearTextPage() {
   const [selectedAi, setSelectedAi] = useState('gpt')
@@ -27,6 +29,7 @@ export default function ClearTextPage() {
           w={'100%'}
         >
           <Button
+            leftIcon={<SiOpenai />}
             variant={"solid"}
             isDisabled={selectedAi === 'gpt'}
             onClick={() => setSelectedAi('gpt')}
@@ -35,6 +38,7 @@ export default function ClearTextPage() {
           </Button>
           <Box w={'1px'} bg={'#CCC'} />
           <Button
+            leftIcon={<FaBrain />}
             variant={"solid"}
             isDisabled={selectedAi === 'soffos'}
             onClick={() => setSelectedAi('soffos')}
