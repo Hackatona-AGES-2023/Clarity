@@ -8,7 +8,7 @@ export default function TranslateInputBoxComponent(props: any) {
 
   const traduzir = () => {
     setValue("Convertendo...")
-    getIAResponse(props.isGPT, message).then((data) => {setValue(data.data.data.response); console.log(data.data.data.response)});
+    getIAResponse(props.isGPT, message).then((data) => { setValue(data.data.data.response); console.log(data.data.data.response) });
   }
 
   return (
@@ -31,12 +31,12 @@ export default function TranslateInputBoxComponent(props: any) {
         fontSize={'1.15rem'}
       >
         <Flex
-          pl={'20px'}
           flex={1}
           justifyContent={'space-between'}
           alignItems={'center'}
         >
           <Text
+            pl={'20px'}
           >
             {'Inserir texto'}
           </Text>
@@ -74,6 +74,7 @@ export default function TranslateInputBoxComponent(props: any) {
             borderColor: '#CCC'
           }}
           borderRadius={0}
+          _disabled={{ opacity: 1 }}
         />
         <Box
           w={'1px'}
@@ -97,6 +98,7 @@ export default function TranslateInputBoxComponent(props: any) {
             borderColor: '#CCC'
           }}
           borderRadius={0}
+          _disabled={{ opacity: 1 }}
         />
       </Flex>
     </Box>
