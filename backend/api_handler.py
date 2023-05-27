@@ -5,23 +5,6 @@ import json
 
 class ApiHandler:
     def soffos(self, msg):
-<<<<<<< Updated upstream
-        headers = {
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer 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'
-        }
-
-        body = {
-            'model': 'gpt-3.5-turbo',
-            'messages': [{
-                'role': 'user',
-                'message': msg
-            }]
-        }
-
-        response = requests.post('https://api.soffos.ai/v1/chat', headers=headers, json=body)
-        print(response.json())
-=======
         generated_uuid = uuid.uuid4()
         uuid_str = str(generated_uuid)
         data = {
@@ -45,7 +28,6 @@ class ApiHandler:
         }
 
         response = requests.post(url, headers=headers, json=data)
->>>>>>> Stashed changes
 
         return json.dumps(response.json())
     def chatGPT(self, msg):
