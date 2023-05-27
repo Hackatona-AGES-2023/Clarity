@@ -1,7 +1,6 @@
 import { Box, Button, Flex } from "@chakra-ui/react";
 import HeaderComponent from "../../components/HeaderComponent";
 import TranslateInputBoxComponent from "./TranslateInputBoxComponent";
-import AmbiguityReasonBoxComponent from "./AmbiguityReasonBoxComponent";
 import { useState } from "react";
 import { SiOpenai } from "react-icons/si"
 import { FaBrain } from "react-icons/fa"
@@ -15,7 +14,6 @@ export default function ClearTextPage() {
     >
       <HeaderComponent />
       <Flex
-        pt={'10%'}
         flexDirection={'column'}
         justifyContent={'center'}
         alignItems={'center'}
@@ -24,33 +22,42 @@ export default function ClearTextPage() {
         px={'10%'}
         bg={'#f0f0f0'}
         gap={'40px'}
-        pb={'60px'}
       >
         <Flex
+          h={'100%'}
           w={'100%'}
         >
-          <Button
-            color={'#3F72AF'}
-            leftIcon={<SiOpenai />}
-            variant={"solid"}
-            isDisabled={selectedAi === 'gpt'}
-            onClick={() => setSelectedAi('gpt')}
+          <Box
+            borderBottom={selectedAi === 'gpt' ? '2px' : undefined}
+            borderColor={'#3F72AF'}
           >
-            {'Chat GPT'}
-          </Button>
+            <Button
+              color={'#3F72AF'}
+              leftIcon={<SiOpenai />}
+              variant={"solid"}
+              isDisabled={selectedAi === 'gpt'}
+              onClick={() => setSelectedAi('gpt')}
+            >
+              {'Chat GPT'}
+            </Button>
+          </Box>
           <Box w={'1px'} bg={'#CCC'} />
-          <Button
-            color={'#3F72AF'}
-            leftIcon={<FaBrain />}
-            variant={"solid"}
-            isDisabled={selectedAi === 'soffos'}
-            onClick={() => setSelectedAi('soffos')}
+          <Box
+            borderBottom={selectedAi === 'soffos' ? '2px' : undefined}
+            borderColor={'#3F72AF'}
           >
-            {'Soffos'}
-          </Button>
+            <Button
+              color={'#3F72AF'}
+              leftIcon={<FaBrain />}
+              variant={"solid"}
+              isDisabled={selectedAi === 'soffos'}
+              onClick={() => setSelectedAi('soffos')}
+            >
+              {'Soffos'}
+            </Button>
+          </Box>
         </Flex>
         <TranslateInputBoxComponent />
-        <AmbiguityReasonBoxComponent />
       </Flex>
     </Box>
   )
