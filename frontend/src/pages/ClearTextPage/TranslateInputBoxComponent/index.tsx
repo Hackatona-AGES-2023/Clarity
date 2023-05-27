@@ -61,8 +61,9 @@ export default function TranslateInputBoxComponent() {
           pl={'20px'}
           pt={'20px'}
           variant={'unstyled'}
-          placeholder={'Texto traduzido'}
+          placeholder={'Texto traduzido...'}
           resize={'none'}
+          // value={question_request}
           _placeholder={{ color: '#aaa' }}
           _focus={{
             // boxShadow: `0 0 4px 1px #585858`,

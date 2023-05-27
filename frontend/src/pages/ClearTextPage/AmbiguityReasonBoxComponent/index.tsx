@@ -33,7 +33,7 @@ export default function AmbiguityReasonBoxComponent() {
         pl={'20px'}
         pt={'20px'}
         variant={'unstyled'}
-        placeholder={'Texto traduzido'}
+        placeholder={'Razão da ambiguidade...'}
         resize={'none'}
         _placeholder={{ color: '#aaa' }}
         _focus={{
