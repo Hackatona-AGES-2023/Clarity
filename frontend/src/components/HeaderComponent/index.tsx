@@ -9,7 +9,10 @@ export default function HeaderComponent() {
   return (
     <Flex
       boxShadow={'0 0 3px rgba(0,0,0,0.5)'}
-      zIndex={1}
+      zIndex={2}
+      w={'100%'}
+      bg={'#FFF'}
+      position={'fixed'}
       h={'10%'}
     >
       <Flex
