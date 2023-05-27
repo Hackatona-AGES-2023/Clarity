@@ -8,8 +8,8 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path={'/'} element={<HowToUsePage />} />
-        <Route path={'translate'} element={<ClearTextPage />} />
+        <Route path={'/'} element={<ClearTextPage />} />
+        <Route path={'/how-to-use'} element={<HowToUsePage />} />
       </Routes>
     </BrowserRouter>
   )

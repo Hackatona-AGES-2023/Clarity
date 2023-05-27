@@ -39,13 +39,13 @@ export default function HeaderComponent() {
         >
           <Button
             variant={'unstyled'}
-            onClick={() => navigate('/')}
+            onClick={() => navigate('/how-to-use')}
           >
             {'Como usar?'}
           </Button>
           <Button
             variant={'unstyled'}
-            onClick={() => navigate('/translate')}
+            onClick={() => navigate('/')}
           >
             {'Conversor'}
           </Button>
