@@ -49,36 +49,74 @@ const getToken = async () => {
     })
 }
 
-const getResponse = async (question) => {
-    return new Promise(async (resolve, reject) => {
-        fetch("https://api.soffos.ai/service/chat/", {
+const test = (question, model) => {
+    try {
+        const url = "http://localhost:3333/exec"
+        let body = {
+            "isGPT": false,
+            "message": question 
+        };
+        const headers = {
+            "Content-Type": "application/json",
+        }
+        if (model === 'gpt') {
+            body.isGPT = true
+        } 
+
+        fetch(url, {
             method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "x-api-key": "Token 8b8de695-81ed-4614-96a8-9f69419600e3"
-            },
-            body: JSON.stringify({
-                "messages": [
-                    {
-                    "source": "user",
-                    "text": `Existe ambiguidade nessa frase? ${question}`
-                    }
-                ],
-                "mode": "open",
-                "session_id": uid(),
-                "user": "gataba.santos@gmail.com",
-                "user_id": 437
-            }),
-            redirect: 'follow'
+            headers,
+            body: JSON.stringify(body)
         })
         .then(response => response.json())
         .then(result => {
-            resolve(result.response)
+            console.log('__________________________________');
+            console.log(result.data.response)
+            console.log('__________________________________');
+            resolve(result.data.response)
         })
-        .catch(error => {
-            console.log("Error ", error)
+        .catch(e => {
             reject("ERROR")
-        });
+            console.log(e)
+        }) 
+    } catch(e) {
+        console.log("MUITO ERRADO")
+    }
+}
+
+const getResponse = async (question, model) => {
+    // test(question, model)
+    return new Promise(async (resolve, reject) => {
+
+        const url = "http://localhost:3333/exec"
+        let body = {
+            "isGPT": false,
+            "message": question 
+        };
+        const headers = {
+            "Content-Type": "application/json",
+        }
+        if (model === 'gpt') {
+            body.isGPT = true
+        } 
+
+        fetch(url, {
+            method: "POST",
+            headers,
+            body: JSON.stringify(body)
+        })
+        .then(response => response.json())
+        .then(result => {
+            console.log('__________________________________');
+            console.log(result)
+            console.log('__________________________________');
+            if (model === 'gpt') resolve(result.data.choices[0].message.content)
+            else resolve(result.data.response)
+        })
+        .catch(e => {
+            reject("ERROR")
+            console.log(e)
+        })
     })
 }
 
@@ -91,21 +129,15 @@ chrome.runtime.onConnect.addListener((port) => {
         console.log(model)
         console.log('-------------------')
         
-        getResponse(question)
+        getResponse(question, model)
         .then(async answer => {
             console.log("aa - ", answer)
             port.postMessage(answer)
-            // const resRead = answer.getReader()
-            // while (true) {
-            //     const {done, value} = await resRead.read()
-            //     if (done) break
-            //     if (done === undefined || value === undefined) port.postMessage('ERROR')
-            //     const data = new TextDecoder().decode(value)
-            //     // console.log('==============================')
-            //     // console.log(data)
-            //     // console.log('==============================')
-            //     port.postMessage(data)
-            // }
         }).catch((e) => port.postMessage(e))
     })
 })
+
+
+// Existem duas maneiras de configurar um servidor web em Python. Python suporta um servidor web "out of the box", ou seja, sem a necessidade de instalar bibliotecas adicionais. É possível iniciar um servidor web com apenas uma linha de código.
+
+// Existem duas maneiras de configurar um servidor web em Python. Python tem suporte nativo a um servidor web. É possível iniciar um servidor web com apenas uma linha de código.
