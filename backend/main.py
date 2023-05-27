@@ -39,17 +39,30 @@ class MyServer(BaseHTTPRequestHandler):
                 is_gpt = data['isGPT']
 
                 api_handler = ApiHandler()
-                api_handler.chatGPT(msg) if is_gpt else api_handler.soffos(msg)
+
+                response = None 
+
+                if is_gpt:
+                    response = api_handler.chatGPT(msg)
+                else:
+                    response = api_handler.soffos(msg)
 
                 self.send_response(200)
                 self.send_header('Content-type', 'application/json')
                 self.end_headers()
-                self.wfile.write(b'Successfully processed the POST request.')
+
+                # Process the request body
+                request_data = json.loads(response)
+
+                # Prepare the response JSON
+                response_data = {'message': 'Request received successfully!', 'data': request_data}
+
+                response_json = json.dumps(response_data)
+
+                # Send the response
+                self.wfile.write(response_json.encode())
             case _:
                 print("nothing")
-
-
-
 
 if __name__ == "__main__":        
     webServer = HTTPServer((hostName, serverPort), MyServer)
