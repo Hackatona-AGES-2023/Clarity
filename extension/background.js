@@ -85,8 +85,10 @@ const getResponse = async (question) => {
 chrome.runtime.onConnect.addListener((port) => {
     port.onMessage.addListener((msg) => {
         const question = msg.question
+        const model = msg.model
         console.log('-------------------')
         console.log(question)
+        console.log(model)
         console.log('-------------------')
         
         getResponse(question)

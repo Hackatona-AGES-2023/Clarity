@@ -40,10 +40,6 @@ table {
 	border-spacing: 0;
 }
 
-
-
-
-
 body {
     font-family: 'Inter', sans-serif;
     width:400px;
@@ -74,31 +70,44 @@ align-items: center; */
     
 }
 
+.right-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    /* background-color: red; */
+}
+
 .title {
     display: flex;
+    align-items: center;
+    font-size: 120%;
+    font-weight: bold;
 }
 
 h1 {
     color: black;
-    margin-left: 20px;
+    margin-left: 12px;
 }
 
 
 .editable {
     font-family: 'Inter', sans-serif;
     resize: none;
-    background-color: #454754;
-    color: #D1D5CA;
-    font-size: 3.75vh;
+    background-color: white;
+    color: black;
+    font-size: 3vh;
     /* width: 94vw; */
     align-self: center;
     width: 100%;
     justify-self: center;
     /* border: 0px; */
-    padding: 1vw;
+    padding: 2vw;
     /* border-radius: 2px; */
     overflow-y: scroll;
-    border-radius: 0.75rem;
+    border-radius: 8px;
+    box-shadow: 0 0 3px rgba(0,0,0,0.5);
+    text-align: justify;
 }
 
 .editable:empty:before {
@@ -121,6 +130,7 @@ h1 {
 a {
     text-decoration: none;
     color: blue;
+    font-size: 75%;
 }
 
 a:hover {
@@ -131,4 +141,16 @@ a:hover {
 
 a:hover {
     cursor: pointer;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
+    font-size: 0.75rem;
+}
+
+.button-container > div {
+    display: flex;
+    align-items: center;
 }

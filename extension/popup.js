@@ -43,8 +43,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     const getData = async (selection) => {
+        var selectedOption = document.querySelector('input[name="model"]:checked').value;
         console.log("0--0-0-0-0-0-0--0-0-0-0-0")
         console.log(selection)
+        console.log(selectedOption)
         console.log("0--0-0-0-0-0-0--0-0-0-0-0")
         if (!selection.length == 0) {
             document.getElementById('input').style.opacity = 1
@@ -52,7 +54,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             document.getElementById('output').style.opacity = 0.5
             document.getElementById('output').innerHTML = "Loading..."
             const port = chrome.runtime.connect();
-            port.postMessage({question: selection})
+            port.postMessage({question: selection, model: selectedOption})
             port.onMessage.addListener((msg) => showPopup(msg))
         } else {
             document.getElementById('input').style.opacity = 0.5
@@ -63,7 +65,18 @@ document.addEventListener("DOMContentLoaded", async () => {
     const getSelectedText = async () => {
         const activeTab = await getActiveTab()
         chrome.tabs.sendMessage(activeTab.id, {type: "LOAD"}, getData)
+        addRadioEventListener()
     }
+
+    const addRadioEventListener = () => {
+        const radioButtons = document.querySelectorAll('input[name="model"]');
+        radioButtons.forEach((radioButton) => {
+            radioButton.addEventListener('change', () => {
+                const selection = document.getElementById('input').innerHTML;
+                getData(selection);
+            });
+        });
+    };
 
     getSelectedText()
 })
