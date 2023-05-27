@@ -1,6 +1,7 @@
 import { Button, Flex, Image, Text } from "@chakra-ui/react";
 import Group from "../../assets/icons/Group.svg";
 import { useNavigate } from "react-router-dom";
+import { FiDownload } from "react-icons/fi";
 
 export default function HeaderComponent() {
   const navigate = useNavigate()
@@ -8,39 +9,61 @@ export default function HeaderComponent() {
   return (
     <Flex
       boxShadow={'0 0 3px rgba(0,0,0,0.5)'}
-      zIndex={1}
+      zIndex={2}
+      w={'100%'}
+      bg={'#FFF'}
+      position={'fixed'}
       h={'10%'}
-      gap={'50px'}
     >
       <Flex
-        alignItems={'center'}
-        pl={'20px'}
-        gap={'8%'}
+        w={'50%'}
+        gap={'50px'}
       >
-        <Image src={Group} />
-        <Text
-          fontSize={'1.5rem'}
-          fontWeight={'bold'}
+        <Flex
+          alignItems={'center'}
+          pl={'20px'}
+          gap={'8%'}
         >
-          {'Clarity'}
-        </Text>
+          <Image src={Group} />
+          <Text
+            fontSize={'1.5rem'}
+            fontWeight={'bold'}
+          >
+            {'Clarity'}
+          </Text>
+        </Flex>
+        <Flex
+          flex={1}
+          gap={'4%'}
+          alignItems={'center'}
+        >
+          <Button
+            variant={'unstyled'}
+            onClick={() => navigate('/')}
+          >
+            {'Como usar?'}
+          </Button>
+          <Button
+            variant={'unstyled'}
+            onClick={() => navigate('/translate')}
+          >
+            {'Tradutor'}
+          </Button>
+        </Flex>
+
       </Flex>
       <Flex
-        flex={1}
-        gap={'2%'}
+        w={'50%'}
+        justifyContent={'flex-end'}
         alignItems={'center'}
+        pr={'20px'}
       >
         <Button
-          variant={'unstyled'}
-          onClick={() => navigate('/')}
+          rightIcon={<FiDownload />}
+          variant={"solid"}
+          bg={'#FFF'}
         >
-          {'Como usar?'}
-        </Button>
-        <Button
-          variant={'unstyled'}
-          onClick={() => navigate('/translate')}
-        >
-          {'Tradutor'}
+          {'Instalar extensão'}
         </Button>
       </Flex>
     </Flex>
