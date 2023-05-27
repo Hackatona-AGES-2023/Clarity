@@ -27,25 +27,35 @@ export default function ClearTextPage() {
           h={'100%'}
           w={'100%'}
         >
-          <Button
-            color={'#3F72AF'}
-            leftIcon={<SiOpenai />}
-            variant={"solid"}
-            isDisabled={selectedAi === 'gpt'}
-            onClick={() => setSelectedAi('gpt')}
+          <Box
+            borderBottom={selectedAi === 'gpt' ? '2px' : undefined}
+            borderColor={'#3F72AF'}
           >
-            {'Chat GPT'}
-          </Button>
+            <Button
+              color={'#3F72AF'}
+              leftIcon={<SiOpenai />}
+              variant={"solid"}
+              isDisabled={selectedAi === 'gpt'}
+              onClick={() => setSelectedAi('gpt')}
+            >
+              {'Chat GPT'}
+            </Button>
+          </Box>
           <Box w={'1px'} bg={'#CCC'} />
-          <Button
-            color={'#3F72AF'}
-            leftIcon={<FaBrain />}
-            variant={"solid"}
-            isDisabled={selectedAi === 'soffos'}
-            onClick={() => setSelectedAi('soffos')}
+          <Box
+            borderBottom={selectedAi === 'soffos' ? '2px' : undefined}
+            borderColor={'#3F72AF'}
           >
-            {'Soffos'}
-          </Button>
+            <Button
+              color={'#3F72AF'}
+              leftIcon={<FaBrain />}
+              variant={"solid"}
+              isDisabled={selectedAi === 'soffos'}
+              onClick={() => setSelectedAi('soffos')}
+            >
+              {'Soffos'}
+            </Button>
+          </Box>
         </Flex>
         <TranslateInputBoxComponent />
       </Flex>
