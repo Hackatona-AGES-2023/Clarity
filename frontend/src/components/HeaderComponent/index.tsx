@@ -24,10 +24,11 @@ export default function HeaderComponent() {
           pl={'20px'}
           gap={'8%'}
         >
-          <Image src={Group} />
+          <Image src={Group} color={'#3F72AF'} />
           <Text
             fontSize={'1.5rem'}
             fontWeight={'bold'}
+            color={'#3F72AF'}
           >
             {'Clarity'}
           </Text>
@@ -59,6 +60,7 @@ export default function HeaderComponent() {
         pr={'20px'}
       >
         <Button
+          color={'#3F72AF'}
           rightIcon={<FiDownload />}
           variant={"solid"}
           bg={'#FFF'}

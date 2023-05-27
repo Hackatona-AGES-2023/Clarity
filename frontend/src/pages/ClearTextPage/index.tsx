@@ -30,6 +30,7 @@ export default function ClearTextPage() {
           w={'100%'}
         >
           <Button
+            color={'#3F72AF'}
             leftIcon={<SiOpenai />}
             variant={"solid"}
             isDisabled={selectedAi === 'gpt'}
@@ -39,6 +40,7 @@ export default function ClearTextPage() {
           </Button>
           <Box w={'1px'} bg={'#CCC'} />
           <Button
+            color={'#3F72AF'}
             leftIcon={<FaBrain />}
             variant={"solid"}
             isDisabled={selectedAi === 'soffos'}

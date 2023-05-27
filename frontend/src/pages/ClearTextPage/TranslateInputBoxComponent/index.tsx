@@ -32,7 +32,7 @@ export default function TranslateInputBoxComponent() {
           <Button
             color={'#FFF'}
             zIndex={1}
-            bg={'#585858'}
+            bg={'#3F72AF'}
             variant={'solid'}
           >
             {'Traduzir'}
