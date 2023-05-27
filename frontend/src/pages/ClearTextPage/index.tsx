@@ -8,6 +8,8 @@ import { FaBrain } from "react-icons/fa"
 export default function ClearTextPage() {
   const [selectedAi, setSelectedAi] = useState('gpt')
 
+  
+
   return (
     <Box
       h={'100vh'}
@@ -57,7 +59,9 @@ export default function ClearTextPage() {
             </Button>
           </Box>
         </Flex>
-        <TranslateInputBoxComponent />
+        <TranslateInputBoxComponent 
+          isGPT={selectedAi === 'gpt'}
+        />
       </Flex>
     </Box>
   )

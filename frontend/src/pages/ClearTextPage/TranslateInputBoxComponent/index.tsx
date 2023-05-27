@@ -1,6 +1,16 @@
 import { Box, Button, Flex, Text, Textarea } from "@chakra-ui/react";
+import { getIAResponse } from "../../../services/api";
+import { useState } from "react";
 
-export default function TranslateInputBoxComponent() {
+export default function TranslateInputBoxComponent(props: any) {
+  const [message, setMessage] = useState("");
+  const [value, setValue] = useState("");
+
+  const traduzir = () => {
+    setValue("Convertendo...")
+    getIAResponse(props.isGPT, message).then((data) => {setValue(data.data.data.response); console.log(data.data.data.response)});
+  }
+
   return (
     <Box
       // flex={1}
@@ -26,7 +36,8 @@ export default function TranslateInputBoxComponent() {
           justifyContent={'space-between'}
           alignItems={'center'}
         >
-          <Text>
+          <Text
+          >
             {'Inserir texto'}
           </Text>
           <Button
@@ -34,21 +45,23 @@ export default function TranslateInputBoxComponent() {
             zIndex={1}
             bg={'#3F72AF'}
             variant={'solid'}
+            onClick={() => traduzir()}
           >
-            {'Traduzir'}
+            {'Converter'}
           </Button>
         </Flex>
         <Text
           pl={'20px'}
           flex={1}
         >
-          {'Texto traduzido'}
+          {'Texto convertido'}
         </Text>
       </Flex>
       <Flex
         h={'425px'}
       >
         <Textarea
+          onChange={(e) => setMessage(e.target.value)}
           flex={1}
           pl={'20px'}
           pt={'20px'}
@@ -68,10 +81,12 @@ export default function TranslateInputBoxComponent() {
           alignSelf={'stretch'}
         />
         <Textarea
+          value={value}
           isDisabled
           flex={1}
           pl={'20px'}
           pt={'20px'}
+          pr={'20px'}
           variant={'unstyled'}
           placeholder={'Texto traduzido...'}
           resize={'none'}

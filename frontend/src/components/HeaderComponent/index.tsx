@@ -47,7 +47,7 @@ export default function HeaderComponent() {
             variant={'unstyled'}
             onClick={() => navigate('/translate')}
           >
-            {'Tradutor'}
+            {'Conversor'}
           </Button>
         </Flex>
 
