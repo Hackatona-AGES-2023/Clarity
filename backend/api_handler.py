@@ -32,13 +32,13 @@ class ApiHandler:
 
         return json.dumps(response.json())
     def chatGPT(self, msg):
-        api_key = "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"
+        api_key = "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"
 
         url = "https://api.openai.com/v1/chat/completions"
 
         data = {
             "model": "gpt-3.5-turbo",
-            "messages": [{"role": "user", "content": f"{msg}"}],
+            "messages": [{"role": "user", "content": f"Rewrite the following sentence, removing their ambiguity and explain it, if exists, in Portuguese: {msg}"}],
             "temperature": 0.7
         }
         headers = {
