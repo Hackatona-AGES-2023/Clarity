@@ -8,7 +8,7 @@ import { FaBrain } from "react-icons/fa"
 export default function ClearTextPage() {
   const [selectedAi, setSelectedAi] = useState('gpt')
 
-  
+
 
   return (
     <Box
@@ -36,9 +36,11 @@ export default function ClearTextPage() {
             <Button
               color={'#3F72AF'}
               leftIcon={<SiOpenai />}
+              opacity={0.5}
               variant={"solid"}
               isDisabled={selectedAi === 'gpt'}
               onClick={() => setSelectedAi('gpt')}
+              _disabled={{ opacity: 1 }}
             >
               {'Chat GPT'}
             </Button>
@@ -50,16 +52,18 @@ export default function ClearTextPage() {
           >
             <Button
               color={'#3F72AF'}
+              opacity={0.5}
               leftIcon={<FaBrain />}
               variant={"solid"}
               isDisabled={selectedAi === 'soffos'}
               onClick={() => setSelectedAi('soffos')}
+              _disabled={{ opacity: 1 }}
             >
               {'Soffos'}
             </Button>
           </Box>
         </Flex>
-        <TranslateInputBoxComponent 
+        <TranslateInputBoxComponent
           isGPT={selectedAi === 'gpt'}
         />
       </Flex>
