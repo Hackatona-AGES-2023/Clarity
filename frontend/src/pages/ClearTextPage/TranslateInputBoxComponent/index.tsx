@@ -1,4 +1,4 @@
-import { Box, Flex, Text, Textarea } from "@chakra-ui/react";
+import { Box, Button, Flex, Text, Textarea } from "@chakra-ui/react";
 
 export default function TranslateInputBoxComponent() {
   return (
@@ -20,12 +20,24 @@ export default function TranslateInputBoxComponent() {
         fontWeight={'bold'}
         fontSize={'1.15rem'}
       >
-        <Text
+        <Flex
           pl={'20px'}
           flex={1}
+          justifyContent={'space-between'}
+          alignItems={'center'}
         >
-          {'Inserir texto'}
-        </Text>
+          <Text>
+            {'Inserir texto'}
+          </Text>
+          <Button
+            color={'#FFF'}
+            zIndex={1}
+            bg={'#585858'}
+            variant={'solid'}
+          >
+            {'Traduzir'}
+          </Button>
+        </Flex>
         <Text
           pl={'20px'}
           flex={1}
