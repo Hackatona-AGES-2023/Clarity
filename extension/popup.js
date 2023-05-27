@@ -11,13 +11,15 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     const showPopup = async (answer) => {
-        if (answer !== "CLOUDFLARE" && answer !== "ERROR") {
+        if (answer !== "ERROR") {
             try {
+                console.log('___________')
+                console.log(answer)
+                document.getElementById('output').style.opacity = 1
+                document.getElementById('output').innerHTML = answer
                 let res = await answer.split("data:")
                 try {
                     const detail = JSON.parse(res[0]).detail
-                    document.getElementById('output').style.opacity = 1
-                    document.getElementById('output').innerHTML = detail
                     return;
                 } catch (e) {
                     try {
@@ -34,15 +36,9 @@ document.addEventListener("DOMContentLoaded", async () => {
                 document.getElementById('output').style.opacity = 1
                 document.getElementById('output').innerHTML = "Something went wrong. Please try in a few minutes."
             }
-
-        } else if (answer === "CLOUDFLARE") {
-            document.getElementById('input').style.opacity = 1
-            document.getElementById('input').innerHTML = 'You need to once visit <a target="_blank" href="https://chat.openai.com/chat">chat.openai.com</a> and check if the connection is secure. Redirecting...'
-            await sleep(3000)
-            chrome.tabs.create({url: "https://chat.openai.com/chat"})
         } else {
             document.getElementById('output').style.opacity = 1
-            document.getElementById('output').innerHTML = 'Something went wrong. Are you logged in to <a target="_blank" href="https://chat.openai.com/chat">chat.openai.com</a>? Try logging out and logging in again.'
+            document.getElementById('output').innerHTML = 'ERROR'
         }
     }
 
