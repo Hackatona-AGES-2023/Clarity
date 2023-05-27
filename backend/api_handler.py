@@ -1,6 +1,7 @@
 import uuid
 import requests
 import json
+import openai
 
 
 class ApiHandler:
@@ -31,4 +32,21 @@ class ApiHandler:
 
         return json.dumps(response.json())
     def chatGPT(self, msg):
-        print("gpt")
+        api_key = "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"
+
+        url = "https://api.openai.com/v1/chat/completions"
+
+        data = {
+            "model": "gpt-3.5-turbo",
+            "messages": [{"role": "user", "content": f"{msg}"}],
+            "temperature": 0.7
+        }
+        headers = {
+            'Authorization': f'Bearer {api_key}',
+            'Content-Type': 'application/json'
+        }
+
+        response = requests.post(url, headers=headers, json=data)
+
+        return json.dumps(response.json())
+
